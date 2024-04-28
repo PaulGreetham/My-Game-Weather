@@ -5,6 +5,7 @@ import { SearchResultsComponent } from './search-teams/search-results/search-res
 import { SearchBarComponent } from './search-teams/search-bar/search-bar.component';
 import { Team } from './interfaces/team.interface';
 import { HttpClientModule } from '@angular/common/http';
+import { FixturesComponent } from './fixtures/fixtures/fixtures.component';
 
 @Component({
   selector: 'app-root',
@@ -14,17 +15,30 @@ import { HttpClientModule } from '@angular/common/http';
     RouterOutlet,
     SearchResultsComponent,
     SearchBarComponent,
+    FixturesComponent,
     HttpClientModule,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  styleUrls: ['./app.component.sass'],
 })
+
 
 export class AppComponent {
   title = 'my-game-weather';
+
+  teams: Team[] = [];
+  selectedTeam: Team | null = null;
   searchResults: Team[] = [];
 
+  constructor() {
+    this.searchResults = [];
+  }
+
   onTeamsSearched(teams: Team[]): void {
-    this.searchResults = teams;
+    this.teams = teams;
+  }
+
+  onTeamSelect(team: Team): void {
+    this.selectedTeam = team;
   }
 }

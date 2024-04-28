@@ -1,34 +1,30 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FootballService } from '../../services/football.service';
 import { Team } from '../../interfaces/team.interface';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-search-bar',
   standalone: true,
   imports: [
-    FormsModule,
+    CommonModule,
+    HttpClientModule,
   ],
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.sass']
+  styleUrls: ['./search-bar.component.sass'],
+  // imports array is not needed here if you've already included HttpClientModule in your root app component
 })
 export class SearchBarComponent {
   searchQuery: string = '';
-
   @Output() searchEvent = new EventEmitter<Team[]>();
 
   constructor(private footballService: FootballService) {}
 
   search(): void {
-    this.footballService.searchTeams(this.searchQuery).subscribe(
-      (result: { response: Team[] }) => {
-        // Emit the search result to the parent component
-        // Make sure to emit the 'response' property of the result since that's the actual array of teams
-        this.searchEvent.emit(result.response);
-      },
-      error => {
-        console.error('Error searching for teams', error);
-      }
-    );
+    this.footballService.searchTeams(this.searchQuery).subscribe({
+      next: (data) => this.searchEvent.emit(data.response),
+      error: (error) => console.error('Error searching for teams', error)
+    });
   }
 }
