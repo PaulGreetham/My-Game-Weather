@@ -6,6 +6,7 @@ import { SearchBarComponent } from './search-teams/search-bar/search-bar.compone
 import { Team } from './interfaces/team.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { FixturesComponent } from './fixtures/fixtures/fixtures.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { FixturesComponent } from './fixtures/fixtures/fixtures.component';
     SearchBarComponent,
     FixturesComponent,
     HttpClientModule,
+    FormsModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],

@@ -1,5 +1,5 @@
-<ul *ngIf="teams && teams.length">
+<ul *ngIf="teams?.length">
   <li *ngFor="let team of teams">{{ team.name }}</li>
 </ul>
 
-<p *ngIf="teams && !teams.length">No teams found.</p>
+<p *ngIf="!teams?.length">No teams found.</p>

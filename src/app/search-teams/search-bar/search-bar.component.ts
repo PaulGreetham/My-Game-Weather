@@ -1,15 +1,16 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FootballService } from '../../services/football.service';
 import { Team } from '../../interfaces/team.interface';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search-bar',
   standalone: true,
   imports: [
     CommonModule,
-    HttpClientModule,
+    FormsModule,
   ],
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.sass'],
@@ -23,7 +24,9 @@ export class SearchBarComponent {
 
   search(): void {
     this.footballService.searchTeams(this.searchQuery).subscribe({
-      next: (data) => this.searchEvent.emit(data.response),
+      next: (data) => {
+        this.searchEvent.emit(data.response);
+      },
       error: (error) => console.error('Error searching for teams', error)
     });
   }
