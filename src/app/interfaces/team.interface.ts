@@ -18,3 +18,12 @@ export interface Team {
   logo: string;
   venue: Venue;
 }
+
+export interface TeamResponse {
+  team: Team;
+  venue: Venue;
+}
+
+export interface ApiResponse {
+  response: TeamResponse[];
+}

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SearchResultsComponent } from './search-teams/search-results/search-results.component';
 import { SearchBarComponent } from './search-teams/search-bar/search-bar.component';
-import { Team } from './interfaces/team.interface';
+import { Team, TeamResponse } from './interfaces/team.interface';
 import { HttpClientModule } from '@angular/common/http';
 import { FixturesComponent } from './fixtures/fixtures/fixtures.component';
 import { FormsModule } from '@angular/forms';
@@ -30,14 +30,16 @@ export class AppComponent {
 
   teams: Team[] = [];
   selectedTeam: Team | null = null;
-  searchResults: Team[] = [];
+
 
   constructor() {
     this.searchResults = [];
   }
 
-  onTeamsSearched(teams: Team[]): void {
-    this.teams = teams;
+  searchResults: TeamResponse[] = [];
+
+  onTeamsSearched(teams: TeamResponse[]): void {
+    this.searchResults = teams;
   }
 
   onTeamSelect(team: Team): void {

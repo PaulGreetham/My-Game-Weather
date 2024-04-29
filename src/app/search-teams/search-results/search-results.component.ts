@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Team } from '../../interfaces/team.interface';
+import { TeamResponse } from '../../interfaces/team.interface';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'app-search-results',
@@ -11,10 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     HttpClientModule,
+    SearchBarComponent,
   ],
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.sass'],
 })
 export class SearchResultsComponent {
-  @Input() teams: Team[] = [];
+
+
+  @Input() teams: TeamResponse[] = [];
 }

@@ -1,5 +1,8 @@
-<ul *ngIf="teams?.length">
-  <li *ngFor="let team of teams">{{ team.name }}</li>
+<!-- search-results.component.html -->
+<ul *ngIf="teams.length > 0">
+  <li *ngFor="let teamResponse of teams">
+    {{ teamResponse.team.name }}
+  </li>
 </ul>
 
-<p *ngIf="!teams?.length">No teams found.</p>
+<p *ngIf="teams.length === 0">No teams found.</p>
