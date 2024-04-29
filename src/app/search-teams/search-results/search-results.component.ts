@@ -17,6 +17,4 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class SearchResultsComponent {
   @Input() teams: Team[] = [];
-
-  @Input() searchEvent: Team[] = [];
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Team } from '../interfaces/team.interface';
 import { environment } from '../../environments/environment';
@@ -14,8 +14,8 @@ export class FootballService {
 
   constructor(private http: HttpClient) {}
 
-  searchTeams(searchQuery: string): Observable<{ response: Team[] }> {
-    const apiUrl = `https://v3.football.api-sports.io/teams?search=${encodeURIComponent(searchQuery)}`;
+  searchTeams(searchTeam: string): Observable<{ response: Team[] }> {
+    const apiUrl = `https://v3.football.api-sports.io/teams?search=${searchTeam}`;
     return this.http.get<{ response: Team[] }>(apiUrl, { headers: this.headers });
   }
 

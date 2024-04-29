@@ -17,13 +17,13 @@ import { FormsModule } from '@angular/forms';
   // imports array is not needed here if you've already included HttpClientModule in your root app component
 })
 export class SearchBarComponent {
-  searchQuery: string = '';
+  searchTeam: string = '';
   @Output() searchEvent = new EventEmitter<Team[]>();
 
   constructor(private footballService: FootballService) {}
 
   search(): void {
-    this.footballService.searchTeams(this.searchQuery).subscribe({
+    this.footballService.searchTeams(this.searchTeam).subscribe({
       next: (data) => {
         this.searchEvent.emit(data.response);
       },
