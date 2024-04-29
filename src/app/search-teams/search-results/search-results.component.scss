@@ -1,13 +1,12 @@
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  width: 25%;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
