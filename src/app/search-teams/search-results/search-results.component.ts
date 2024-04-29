@@ -18,7 +18,5 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-
-
   @Input() teams: TeamResponse[] = [];
 }
