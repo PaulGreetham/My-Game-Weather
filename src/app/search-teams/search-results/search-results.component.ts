@@ -15,7 +15,7 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
     SearchBarComponent,
   ],
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.sass'],
+  styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
 

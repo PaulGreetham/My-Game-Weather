@@ -1,8 +1,23 @@
-<!-- search-results.component.html -->
-<ul *ngIf="teams.length > 0">
-  <li *ngFor="let teamResponse of teams">
-    {{ teamResponse.team.name }}
-  </li>
-</ul>
+<div *ngIf="teams.length > 0" class="card-container">
+  <div *ngFor="let teamResponse of teams" class="card">
+    <div class="team-logo">
+      <img [src]="teamResponse.team.logo" alt="Logo of {{ teamResponse.team.name }}">
+    </div>
+    <div class="team-details">
+      <h2>{{ teamResponse.team.name }}</h2>
+      <p>Code: {{ teamResponse.team.code }}</p>
+      <p>Country: {{ teamResponse.team.country }}</p>
+      <p>Founded: {{ teamResponse.team.founded }}</p>
+    </div>
+    <div class="venue-details">
+      <h3>Venue: {{ teamResponse.venue.name }}</h3>
+      <p>Address: {{ teamResponse.venue.address }}</p>
+      <p>City: {{ teamResponse.venue.city }}</p>
+      <p>Capacity: {{ teamResponse.venue.capacity }}</p>
+      <p>Surface: {{ teamResponse.venue.surface }}</p>
+      <img [src]="teamResponse.venue.image" alt="Venue of {{ teamResponse.venue.name }}">
+    </div>
+  </div>
+</div>
 
-<p *ngIf="teams.length === 0">No teams found.</p>
+<p *ngIf="teams.length === 0" class="no-results">No teams found.</p>

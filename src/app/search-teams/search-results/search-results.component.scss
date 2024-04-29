@@ -1,0 +1,49 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+  .team-logo {
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .team-details, .venue-details {
+    padding: 15px;
+    h2, h3 {
+      margin-top: 0;
+    }
+    p {
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .venue-details {
+    border-top: 1px solid #eee;
+  }
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  padding: 20px;
+}
