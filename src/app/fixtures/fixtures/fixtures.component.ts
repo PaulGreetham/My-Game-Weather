@@ -1,31 +1,31 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { FootballService } from '../../services/football.service';
-import { Team } from '../../interfaces/team.interface';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-fixtures',
   standalone: true,
-  imports: [
-    CommonModule,
-    HttpClientModule,
-  ],
   templateUrl: './fixtures.component.html',
-  styleUrls: ['./fixtures.component.sass']
+  styleUrls: ['./fixtures.component.scss']
 })
-export class FixturesComponent implements OnChanges {
-  @Input() selectedTeam!: Team;
-  fixtures: any[] = [];
+export class FixturesComponent implements OnInit {
+  fixtures$: Observable<any[]> = new Observable<any[]>();
 
-  constructor(private footballService: FootballService) {}
+  constructor(
+    private footballService: FootballService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['selectedTeam'] && this.selectedTeam) {
-      this.footballService.getFixtures(this.selectedTeam.id).subscribe({
-        next: (data) => this.fixtures = data.response,
-        error: (error) => console.error('Error getting fixtures', error)
-      });
-    }
+  ngOnInit(): void {
+    this.fixtures$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        const teamId = +params.get('id')!;
+        return this.footballService.getFixtures(teamId).pipe(
+          map(data => data.response)
+        );
+      })
+    );
   }
 }

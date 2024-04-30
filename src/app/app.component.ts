@@ -5,7 +5,6 @@ import { SearchResultsComponent } from './search-teams/search-results/search-res
 import { SearchBarComponent } from './search-teams/search-bar/search-bar.component';
 import { Team, TeamResponse } from './interfaces/team.interface';
 import { HttpClientModule } from '@angular/common/http';
-import { FixturesComponent } from './fixtures/fixtures/fixtures.component';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -16,7 +15,6 @@ import { FormsModule } from '@angular/forms';
     RouterOutlet,
     SearchResultsComponent,
     SearchBarComponent,
-    FixturesComponent,
     HttpClientModule,
     FormsModule,
   ],
