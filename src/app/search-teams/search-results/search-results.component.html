@@ -5,9 +5,8 @@
     </div>
     <div class="team-details">
       <h2>{{ teamResponse.team.name }}</h2>
-      <p>Code: {{ teamResponse.team.code }}</p>
-      <p>Country: {{ teamResponse.team.country }}</p>
-      <p>Founded: {{ teamResponse.team.founded }}</p>
+      <p>{{ teamResponse.venue.city }}, {{ teamResponse.team.country }}</p>
+      <h3>Stadium: {{ teamResponse.venue.name }}</h3>
     </div>
     <!-- <div class="venue-details">
       <h3>Venue: {{ teamResponse.venue.name }}</h3>

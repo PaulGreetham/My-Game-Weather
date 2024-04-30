@@ -20,8 +20,9 @@
   .team-logo, .venue-details img {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 50%;
-    height: auto;
+    padding: 0.5rem;
   }
 
   .team-details, .venue-details {
