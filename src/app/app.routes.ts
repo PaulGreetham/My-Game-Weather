@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FixturesComponent } from './fixtures/fixtures/fixtures.component';
+import { FixtureListComponent } from './fixtures/fixture-list/fixture-list.component';
+import { TeamFixtureComponent } from './fixtures/team-fixture/team-fixture.component';
 
 export const routes: Routes = [
-  {
-    path: 'team-fixtures/:id',  // The ':id' is a route parameter
-    component: FixturesComponent
-  }
-  // add other routes as needed
+  { path: 'fixtures/:teamId', component: FixtureListComponent },
+  { path: 'fixtures/:fixtureId', component: TeamFixtureComponent },
+  // Add other routes as needed
 ];
 
 @NgModule({
