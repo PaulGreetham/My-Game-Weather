@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.sass'],
+  styleUrls: ['./search-bar.component.scss'],
 })
 
 export class SearchBarComponent {
@@ -24,7 +24,7 @@ export class SearchBarComponent {
   search(): void {
     this.footballService.searchTeams(this.searchTeam).subscribe({
       next: (apiResponse: ApiResponse) => {
-        this.searchEvent.emit(apiResponse.response);  // Now emitting TeamResponse[] correctly
+        this.searchEvent.emit(apiResponse.response);
       },
       error: (error) => console.error('Error searching for teams', error)
     });

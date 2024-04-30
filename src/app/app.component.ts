@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass'],
+  styleUrls: ['./app.component.scss'],
 })
 
 

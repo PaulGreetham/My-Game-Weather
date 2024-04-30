@@ -1,48 +1,45 @@
 .card-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  margin-bottom: 1rem;
+  width: 100%;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 
-  .team-logo {
+  .team-logo, .venue-details img {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+    height: auto;
   }
 
   .team-details, .venue-details {
-    padding: 15px;
-    h2, h3 {
-      margin-top: 0;
-    }
-    p {
-      margin-bottom: 10px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
+    padding: 0.5rem;
+    text-align: center;
 
-  .venue-details {
-    border-top: 1px solid #eee;
+    h2, h3 {
+      margin: 10px 0;
+    }
+
+    p {
+      margin: 5px 0;
+    }
   }
 }
 
 .no-results {
   text-align: center;
-  color: #666;
-  font-size: 18px;
+  width: 100%;
   padding: 20px;
+  color: #666;
 }
