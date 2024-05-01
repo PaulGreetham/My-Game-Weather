@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -19,4 +20,10 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
 })
 export class SearchResultsComponent {
   @Input() teams: TeamResponse[] = [];
+
+  constructor(private router: Router) {}
+
+  goToFixtures(teamId: number): void {
+    this.router.navigate(['/fixtures', teamId]);
+  }
 }

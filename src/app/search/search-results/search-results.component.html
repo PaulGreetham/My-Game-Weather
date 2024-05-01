@@ -1,5 +1,5 @@
 <div *ngIf="teams.length > 0" class="card-container">
-  <div *ngFor="let teamResponse of teams" class="card">
+  <div *ngFor="let teamResponse of teams" class="card" (click)="goToFixtures(teamResponse.team.id)">
     <div class="team-logo">
       <img [src]="teamResponse.team.logo" alt="Logo of {{ teamResponse.team.name }}">
     </div>

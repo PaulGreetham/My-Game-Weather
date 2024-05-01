@@ -1,1 +1,8 @@
-<p>fixture-list works!</p>
+<div *ngFor="let fixture of fixtures$ | async">
+  <h2>{{ fixture.league.name }} - {{ fixture.league.season }}</h2>
+  <div>
+    <p>Match between {{ fixture.teams.home.name }} and {{ fixture.teams.away.name }}</p>
+    <p>Score: {{ fixture.goals.home }} - {{ fixture.goals.away }}</p>
+    <p>Status: {{ fixture.status.long }}</p>
+  </div>
+</div>
